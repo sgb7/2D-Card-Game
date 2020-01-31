@@ -17,6 +17,18 @@ public class DragDrop : MonoBehaviour
         }
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        isOverDropzone = true;
+        dropzone = collision.gameObject;
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        isOverDropzone = false;
+        dropzone = null;
+    }
+
     public void StartDrag()
     {
         startPosition = transform.position;
